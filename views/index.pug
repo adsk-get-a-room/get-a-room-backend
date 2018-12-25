@@ -1,5 +1,17 @@
 extends layout
 
 block content
-  h1= title
-  p Welcome to #{title}
+  header
+    h1= title
+  main
+  footer
+    = "© Bazinga 2018"
+    br
+    ="Adi Sharet, Michael Kalenkovich, Dror Fichman"
+  script(src='/js/index.js')
+  script(id='room-entry-template' type='text/x-handlebars-template')
+    figure(class='room {{roomStatusClass}}')
+      div(class='room-name')
+        ='{{roomNumber}}, {{roomName}}'
+      div(class='room-status')
+        <img src="{{roomStatusImage}}" />
