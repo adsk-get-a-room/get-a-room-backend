@@ -25,7 +25,10 @@ router.post('/', [
 });
 
 router.get('/', function(req, res, next) {
-    res.send(app.status);
+    var status_values = Object.keys(app.status).map(function(key){
+        return app.status[key];
+    });
+    res.json(status_values);
 });
 
 module.exports = router;
