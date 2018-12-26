@@ -79,6 +79,7 @@ main .room .room-status {
     margin: 4px;
     padding: 4px;
     font-size: 10px;
+    font-weight: 100;
 }
 
 main .room .room-status img {
