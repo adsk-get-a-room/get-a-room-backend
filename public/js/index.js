@@ -7,12 +7,13 @@ $(document).ready(() => {
             let elements = [];
             for (let room of sortedRooms) {
                 let roomStatus = "Unknown";
-                roomStatus = room["is_occupied"] === true ? 'Occupied' : 'Free';
+                roomStatus = room["isOccupied"] === true ? 'Occupied' : 'Free';
                 let roomStatusImage = 'https://hds.static.autodesk.com/images/table-status-bad.svg';
-                roomStatusImage = room["is_occupied"] === true ? 'https://hds.static.autodesk.com/images/table-status-worst.svg' : 'https://hds.static.autodesk.com/images/table-status-good.svg';
+                roomStatusImage = room["isOccupied"] === true ? 'https://hds.static.autodesk.com/images/table-status-worst.svg' : 'https://hds.static.autodesk.com/images/table-status-good.svg';
                 elements.push(roomEntryTemplate({
                     roomName: room["name"],
                     roomNumber: room["id"],
+                    roomStatusName: roomStatus,
                     roomStatusImage: roomStatusImage,
                     roomStatusClass: `room-status-${roomStatus.toLowerCase()}`
                 }));

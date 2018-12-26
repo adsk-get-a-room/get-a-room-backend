@@ -2,7 +2,7 @@ extends layout
 
 block content
   header
-    h1= title
+    img(src='/images/logo.png' height="75")
   main
   footer
     = "© Bazinga 2018"
@@ -14,4 +14,5 @@ block content
       div(class='room-name')
         ='{{roomNumber}}, {{roomName}}'
       div(class='room-status')
-        <img src="{{roomStatusImage}}" />
+        ='{{roomStatusName}} '
+        img(src="{{roomStatusImage}}")
