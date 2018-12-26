@@ -39,6 +39,7 @@ main {
     display: block;
     max-width: 500px;
     margin: auto;
+    margin-top: 10px;
 }
 
 main #rooms-header .room {
