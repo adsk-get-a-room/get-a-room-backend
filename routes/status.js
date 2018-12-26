@@ -8,7 +8,6 @@ const Op = models.Sequelize.Op;
 const secAgoToRelevantStatus = 10;
 const occupancyPercentage = 0.1;
 
-
 router.post('/', [
         check('id').isNumeric(),
         check('name').isString().isLength({ max:200 }),
