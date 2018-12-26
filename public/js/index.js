@@ -7,9 +7,15 @@ $(document).ready(() => {
             let elements = [];
             for (let room of sortedRooms) {
                 let roomStatus = "Unknown";
-                roomStatus = room["isOccupied"] === true ? 'Occupied' : 'Free';
                 let roomStatusImage = 'https://hds.static.autodesk.com/images/table-status-bad.svg';
-                roomStatusImage = room["isOccupied"] === true ? 'https://hds.static.autodesk.com/images/table-status-worst.svg' : 'https://hds.static.autodesk.com/images/table-status-good.svg';
+                if (room["isOccupied"] === true) {
+                    roomStatusImage = 'https://hds.static.autodesk.com/images/table-status-worst.svg';
+                    roomStatus = 'Occupied';
+                }
+                if (room["isOccupied"] === false) {
+                    roomStatusImage = 'https://hds.static.autodesk.com/images/table-status-good.svg';
+                    roomStatus = 'Free\'';
+                }
                 elements.push(roomEntryTemplate({
                     roomName: room["name"],
                     roomNumber: room["id"],
