@@ -17,6 +17,11 @@ router.post('/', [
     }
 
     status = await models.Status.create(req.body);
+
+    roomFromDb = await models.Room.findById(status.id).then();
+    if (!roomFromDb) {
+        await models.Room.create({"id": status.id, "name": status.name});
+    }
     res.json(status);
 });
 

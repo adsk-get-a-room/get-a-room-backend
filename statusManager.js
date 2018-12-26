@@ -9,6 +9,8 @@ module.exports = async function getAllRoomsStatus() {
     let lastRelevantStatusTime = new Date();
     lastRelevantStatusTime.setSeconds(lastRelevantStatusTime.getSeconds() - secAgoToRelevantStatus);
 
+    const rooms = await models.Room.findAll()
+
     return models.Status.findAll({
         where: {
             createdAt: {
@@ -36,6 +38,32 @@ module.exports = async function getAllRoomsStatus() {
             }
         }
 
+        // Add all rest existing room as inactive
+        for (const room of rooms) {
+            if(!map.has(room.id)){
+                statusResult.push({
+                    id: room.id,
+                    name: room.name,
+                    isOccupied: null
+                });
+            }
+        }
+
         return statusResult;
+    })
+}
+
+async function getAllRooms() {
+    models.Room.findAll().then(rooms => {
+        for (const room of rooms) {
+            if(!map.has(room.id)){
+                map.set(roomStatus.id, true);
+                statusResult.push({
+                    id: room.id,
+                    name: room.name,
+                    isOccupied: null
+                });
+            }
+        }
     })
 }

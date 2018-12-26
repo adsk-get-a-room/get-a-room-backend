@@ -66,7 +66,7 @@ var schedule = require('node-schedule');
 let deleteFromTime = new Date();
 deleteFromTime.setSeconds(deleteFromTime.getSeconds() - 1800);
 
-var j = schedule.scheduleJob(' */1 * * * *', function(){
+var j = schedule.scheduleJob(' */15 * * * *', function(){
   models.Status.destroy({
     where: {
       createdAt: {
