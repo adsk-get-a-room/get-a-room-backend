@@ -49,7 +49,7 @@ router.get('/', function(req, res, next) {
                 let occupiedStatus = status.filter(s => s.isOccupied === true && s.id === roomStatus.id);
                 let occupiedStatusNum = (occupiedStatus) ? occupiedStatus.length : 0;
                 let totalNum = status.filter(s => s.id === roomStatus.id).length;
-                let isInactive = status.filter(s => s.isOccupied != null)? false : true
+                let isInactive = status.filter(s => s.isOccupied != null && s.id === roomStatus.id).length > 0 ? false : true
 
                 statusResult.push({
                     id: roomStatus.id,
