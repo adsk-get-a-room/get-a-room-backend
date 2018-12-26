@@ -41,6 +41,16 @@ main {
     margin: auto;
 }
 
+main #rooms-header .room {
+    background-color: transparent;
+}
+main #rooms-header .room .room-name, main #rooms-header .room .room-status {
+    font-weight: 100;
+    font-size: 12px;
+    margin-bottom: 0;
+    line-height: 1;
+}
+
 main .room {
     margin: 0;
     padding: 0;

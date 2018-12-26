@@ -18,7 +18,7 @@ $(document).ready(() => {
                     roomStatusClass: `room-status-${roomStatus.toLowerCase()}`
                 }));
             }
-            $('main').html(elements);
+            $('main #rooms-list').html(elements);
         });
     };
     getStatus();
