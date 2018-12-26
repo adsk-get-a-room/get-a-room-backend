@@ -13,6 +13,7 @@ $(document).ready(() => {
                 elements.push(roomEntryTemplate({
                     roomName: room["name"],
                     roomNumber: room["id"],
+                    roomStatusName: roomStatus,
                     roomStatusImage: roomStatusImage,
                     roomStatusClass: `room-status-${roomStatus.toLowerCase()}`
                 }));

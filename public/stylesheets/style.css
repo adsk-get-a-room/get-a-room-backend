@@ -62,18 +62,6 @@ main .room:hover {
     background-color: #d2d2d2;
 }
 
-/*.room.room-status-unknown > .room-status {*/
-    /*background-color: rgba(255, 255, 0, 0.5);*/
-/*}*/
-
-/*.room.room-status-free > .room-status {*/
-    /*background-color: rgba(0, 200, 0, 0.5);*/
-/*}*/
-
-/*.room.room-status-occupied > .room-status {*/
-    /*background-color: rgba(255, 0, 0, 0.5);*/
-/*}*/
-
 main .room .room-number {
     display: inline-block;
     margin: 4px;
@@ -90,4 +78,9 @@ main .room .room-status {
     display: inline-block;
     margin: 4px;
     padding: 4px;
+    font-size: 10px;
+}
+
+main .room .room-status img {
+    vertical-align: middle;
 }
