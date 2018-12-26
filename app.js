@@ -8,8 +8,10 @@ const logger = require('morgan');
 const indexRouter = require('./routes/index');
 const apiRouter = require('./routes/status');
 const slackRouter = require('./routes/slack');
-
+const models = require('./models');
+const Op = models.Sequelize.Op;
 const app = express();
+const Sequelize = require('sequelize');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -59,6 +61,20 @@ app.use(bodyParser.json());
 app.use(express.json());
 
 var status = {}
+
+var schedule = require('node-schedule');
+let deleteFromTime = new Date();
+deleteFromTime.setSeconds(deleteFromTime.getSeconds() - 1800);
+
+var j = schedule.scheduleJob(' */1 * * * *', function(){
+  models.Status.destroy({
+    where: {
+      createdAt: {
+        [Op.gt]: Sequelize.literal("NOW() - INTERVAL '60 minutes'")
+      }}
+  })
+  console.log('Cleaning DB from old records - all status from more then 30 mins ago will be deleted');
+});
 
 module.exports.app = app;
 module.exports.status = status;
