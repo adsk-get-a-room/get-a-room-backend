@@ -14,7 +14,7 @@ $(document).ready(() => {
                 }
                 if (room["isOccupied"] === false) {
                     roomStatusImage = 'https://hds.static.autodesk.com/images/table-status-good.svg';
-                    roomStatus = 'Free\'';
+                    roomStatus = 'Free';
                 }
                 elements.push(roomEntryTemplate({
                     roomName: room["name"],
